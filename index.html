@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brownies & Cheesecake Homemade by Yetty Susanti</title>
+    <!-- Link Font Awesome untuk Ikon WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- LINK ANIMASI AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <style>
+        /* --- GAYA TAMPILAN UTAMA (CSS) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* SEKARANG LATAR BELAKANG PAKAI WARNA KREM HANGAT DAN POLA GARIS ESTETIK */
+            background-color: #fdf8f5;
+            background-image: repeating-linear-gradient(45deg, #fbf5f0 0, #fbf5f0 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, #fbf5f0 0, #fbf5f0 1px, #fdf8f5 0, #fdf8f5 50%);
+            background-size: 20px 20px;
+            color: #3e2723;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        h2.section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            color: #4e342e;
+            font-weight: 800;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #d84315;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- 1. HERO SECTION (TEMA BROWNIES & CHEESECAKE) --- */
+        .hero {
+            background: linear-gradient(rgba(46, 26, 17, 0.72), rgba(46, 26, 17, 0.82)), 
+                        url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=1600') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+        }
+        .hero-content {
+            max-width: 850px;
+        }
+        .logo-placeholder {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffb74d;
+            margin-bottom: 15px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #ffe0b2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .btn-wa-hero {
+            background-color: #25D366;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        .btn-wa-hero:hover { 
+            background-color: #128C7E; 
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+        .btn-secondary:hover { background-color: #ffffff; color: #2e1a11; transform: translateY(-2px); }
+
+        /* --- 2. TENTANG KAMI --- */
+        .about-section { 
+            background: linear-gradient(135deg, #fff 0%, #fffbf7 100%); 
+            border-bottom: 1px solid #f1ece6;
+        }
+
+        /* --- 3. PRODUK KAMI (KATALOG) --- */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(78, 52, 46, 0.05);
+            flex: 0 1 calc(25% - 25px);
+            min-width: 260px;
+            max-width: 280px;
+            margin-bottom: 20px;
+            border: 1px solid #f3ede8;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease !important;
+        }
+        .product-card:hover { 
+            transform: translateY(-10px) !important; 
+            box-shadow: 0 15px 30px rgba(78, 52, 46, 0.15) !important;
+        }
+        .product-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+        }
+        .product-info { 
+            padding: 18px; 
+            display: flex; 
+            flex-direction: column; 
+            flex-grow: 1; 
+            text-align: center; 
+            justify-content: space-between; 
+        }
+        .product-info h3 { margin: 0 0 10px 0; font-size: 1.15rem; color: #4e342e; font-weight: 700; }
+        .product-info p { 
+            margin: 0 0 15px 0; 
+            font-size: 0.85rem; 
+            color: #6d4c41; 
+            line-height: 1.5; 
+            text-align: justify; 
+            min-height: 85px; 
+            display: block; 
+        }
+        .product-price { font-weight: 800; color: #d84315; font-size: 1.2rem; margin-bottom: 15px; }
+        .btn-wa {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            padding: 11px 0;
+            border-radius: 6px;
+            background: #25d366;
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(37, 211, 102, 0.2);
+            transition: all 0.3s;
+        }
+        .btn-wa:hover { background-color: #128C7E; box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3); }
+
+        /* --- 4. KENAPA MEMILIH KAMI --- */
+        .features-section { 
+            background: linear-gradient(180deg, #fdf8f5 0%, #f7ede2 100%); 
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+        .feature-item {
+            padding: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 1 calc(33.333% - 30px);
+            min-width: 200px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- CARA ORDER --- */
+        .order-steps-section {
+            background: linear-gradient(180deg, #fffbf7 0%, #fdf8f5 100%);
+            border-top: 1px solid #f1ece6;
+            border-bottom: 1px solid #f1ece6;
+        }
+        .step-card {
+            flex: 1 1 280px; 
+            max-width: 320px; 
+            background: #fff; 
+            padding: 30px 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(78, 52, 46, 0.04);
+            border: 1px solid #f5ede6;
+            transition: transform 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(216, 67, 21, 0.3);
+        }
+        
+        .floating-wa {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1) rotate(10deg);
+            color: white;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .product-card { flex: 0 1 100%; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-placeholder">✨ Brownies & Cheesecake Homemade by Yetty Susanti ✨</div>
+            <h1>Brownies & Cheesecake Homemade Lembut, Legit, dan Dibuat Fresh Setiap Hari</h1>
+            <p>Dibuat dari bahan berkualitas tanpa pengawet, cocok untuk camilan keluarga, hampers, dan berbagai acara spesial.</p>
+            <a href="https://wa.me/6281331258944?text=Halo%20Bu%20Yetty,%20saya%20tertarik%20pesan%20brownies%20dan%20cheesecake-nya" class="btn btn-wa-hero" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hubungi WhatsApp
+            </a>
+            <a href="#menu" class="btn btn-secondary">📖 Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- 2. TENTANG KAMI -->
+    <section class="about-section" style="padding: 80px 20px;">
+        <div class="container" style="max-width: 850px; text-align: center; margin: 0 auto;">
+            <h2 style="color: #4e342e; font-size: 2.5rem; margin-bottom: 25px; font-weight: bold;">
+                Cerita Dibalik Kelezatan Brownies & Cheesecake
+            </h2>
+            <div style="font-size: 1.15rem; line-height: 2; color: #5d4037; text-align: justify;">
+                <p style="margin-bottom: 20px;">
+                    Berawal dari kecintaan yang mendalam terhadap dunia baking dan seni mengolah kue, <strong>Brownies & Cheesecake Homemade by Bu Yee</strong> lahir untuk menghadirkan kebahagiaan manis di setiap meja makan Anda. Kami percaya bahwa setiap potong kue memiliki cerita, dan kelezatan yang sejati hanya bisa tercipta dari ketulusan tangan serta bahan-bahan premium pilihan terbaik tanpa kompromi.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Every panggangan brownies fudgy kami diracik menggunakan cokelat premium murni untuk menghasilkan tekstur yang padat, legit, dengan lapisan <em>shiny crust</em> yang sempurna di atasnya. Tidak kalah istimewa, hidangan <em>Premium Cheesecake</em> kami diolah dengan teknik khusus untuk menciptakan tekstur super lembut, creamy, dan sensasi lumer mewah yang langsung memanjakan lidah Anda sejak gigitan pertama.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Kami sangat menjaga komitmen kualitas dengan prinsip <strong>"Dibuat Fresh Setiap Hari"</strong> dan <strong>"Tanpa Bahan Pengawet"</strong>. Ini memastikan bahwa setiap loyang kue yang sampai ke tangan Anda, keluarga tercinta, maupun sebagai hantaran/hampers untuk orang-orang spesial, selalu berada dalam kondisi terbaik, paling lezat, dan aman dikonsumsi.
+                </p>
+                <p style="font-weight: bold; text-align: center; color: #d84315; font-size: 1.25rem; margin-top: 30px;">
+                    "Karena bagi kami, kepuasan rasa Anda adalah sebuah karya seni yang selalu kami panggang dengan sepenuh hati."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRODUK KAMI (KATALOG) -->
+    <section id="menu" style="padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Katalog Produk Menu Kami</h2>
+            <div class="product-grid">
+                
+                <!-- Menu 1: Brownies 4 Warna -->
+                <div class="product-card">
+                    <img src="bronies-4warna-20x20.png.jpeg" alt="Brownies 4 Warna">
+                    <div class="product-info">
+                        <div>
+                            <h3>Brownies 4 Warna</h3>
+                            <p>Nikmati kombinasi 4 varian rasa dan topping premium dalam satu box berukuran 20x20.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 165.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Brownies%204%20Warna" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 2: Fudgy Brownies Birthday -->
+                <div class="product-card">
+                    <img src="bronies-hbd-20x20.png.jpeg" alt="Fudgy Brownies Birthday">
+                    <div class="product-info">
+                        <div>
+                            <h3>Fudgy Brownies Birthday</h3>
+                            <p>Kelebihan: Tekstur brownies super padat dan legit, lengkap dengan custom tulisan cokelat fresh & kacang berukuran 20x20.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 150.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Fudgy%20Brownies%20Birthday" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 3: Brownies Kukus 20x11 -->
+                <div class="product-card">
+                    <img src="bronies-kukus-20X11.png.jpeg" alt="Brownies Kukus">
+                    <div class="product-info">
+                        <div>
+                            <h3>Brownies Kukus</h3>
+                            <p>Brownies kukus dengan tekstur ekstra empuk, super lembut, dan rasa cokelat pekat.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 60.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Brownies%20Kukus%2020x11" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 4: Classic Fudgy Brownies -->
+                <div class="product-card">
+                    <img src="bronies-ori-20x20.png.jpeg" alt="Classic Fudgy Brownies">
+                    <div class="product-info">
+                        <div>
+                            <h3>Classic Fudgy Brownies</h3>
+                            <p>Dibuat dari cokelat hitam murni pilihan menghasilkan lapisan shiny crust renyah.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 150.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Classic%20Fudgy%20Brownies" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 5: Brownies Cheesecake -->
+                <div class="product-card">
+                    <img src="bunder-kotak.png" alt="Brownies Cheesecake">
+                    <div class="product-info">
+                        <div>
+                            <h3>Brownies Cheesecake</h3>
+                            <p>Perpaduan mewah brownies cokelat yang legit dengan lapisan cheesecake panggang gurih berukuran 10 cm.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 100.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Brownies%20Cheesecake" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 6: Brownies Kukus Topping -->
+                <div class="product-card">
+                    <img src="brownies.kukus-20X11.png.jpeg" alt="Brownies Kukus Topping">
+                    <div class="product-info">
+                        <div>
+                            <h3>Brownies Kukus Topping</h3>
+                            <p>Varian klasik brownies kukus lezat berukuran 20x11, lengkap dengan taburan topping meses.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 55.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Brownies%20Kukus%20Topping" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 7: Basque Burnt Cheesecake -->
+                <div class="product-card">
+                    <img src="Gosong.jpeg" alt="Basque Burnt Cheesecake">
+                    <div class="product-info">
+                        <div>
+                            <h3>Basque Burnt Cheesecake</h3>
+                            <p>Dipanggang dengan suhu tinggi untuk menciptakan permukaan luar berkaramel gosong yang legit.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 350.000</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Basque%20Burnt%20Cheesecake" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 8: Endies Eceran -->
+                <div class="product-card">
+                    <img src="Endies-Ek-25k.png.jpeg" alt="Endies Eceran Premium">
+                    <div class="product-info">
+                        <div>
+                            <h3>Endies Premium</h3>
+                            <p>Tersedia porsi eceran hemat dengan kualitas rasa brownies premium yang tetap juara.</p>
+                        </div>
+                        <div>
+                            <div class="product-price">Rp 25.000 ( 4 pcs )</div>
+                            <a href="https://wa.me/6281331258944?text=Halo%20Admin,%20saya%20mau%20order%20Endies%20Eceran%20Premium" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Pesan via WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CARA ORDER -->
+    <section class="order-steps-section" style="padding: 70px 0;">
+        <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="text-align: center; color: #4e342e; margin-bottom: 10px; font-size: 2.2rem; font-weight: 800;">3 Langkah Mudah Memesan</h2>
+            <!-- TAMBAHAN CATATAN PRE-ORDER H-2 YANG MENCOLOK -->
+            <p style="text-align: center; color: #d84315; font-weight: bold; font-size: 1.15rem; margin-top: 0; margin-bottom: 45px;">
+                ⚠️ PENTING: Sistem Pre-Order (Pemesanan dilakukan minimal H-2 atau 2 hari sebelum pengiriman)
+            </p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
+                
+                <!-- Langkah 1 -->
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h3 style="color: #4e342e; margin-bottom: 12px; font-weight: 700;">Pilih Menu</h3>
+                    <p style="color: #6d4c41; font-size: 0.9rem; line-height: 1.6; margin: 0;">Pilih varian brownies atau cheesecake favoritmu di katalog atas untuk slot H-2.</p>
+                </div>
+                
+                <!-- Langkah 2 -->
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h3 style="color: #4e342e; margin-bottom: 12px; font-weight: 700;">Konfirmasi WA</h3>
+                    <p style="color: #6d4c41; font-size: 0.9rem; line-height: 1.6; margin: 0;">Klik tombol pesan, tentukan tanggal pengiriman (minimal 2 hari ke depan) ke WhatsApp Admin.</p>
+                </div>
+                
+                <!-- Langkah 3 -->
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3 style="color: #4e342e; margin-bottom: 12px; font-weight: 700;">Kue Diantar</h3>
+                    <p style="color: #6d4c41; font-size: 0.9rem; line-height: 1.6; margin: 0;">Lakukan pembayaran, kue akan dipanggang fresh sesuai hari H pengiriman Anda!</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KENAPA MEMILIH KAMI? -->
+    <section class="features-section" style="padding: 80px 0; clear: both; display: block;">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 45px; text-align: center;">Keunggulan Produk Kami</h2>
+            <div class="features-grid">
+                
+                <!-- Item 1 -->
+                <div class="feature-item">
+                    <img src="fresh.png.png" onerror="this.onerror=null; this.src='fresh.png';" alt="Dibuat Fresh Setiap Hari" style="width: 100%; max-width: 250px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="feature-item">
+                    <img src="bahan.png.png" onerror="this.onerror=null; this.src='bahan.png';" alt="Bahan Berkualitas" style="width: 100%; max-width: 250px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="feature-item">
+                    <img src="tanpa-pengawet.png.png" onerror="this.onerror=null; this.src='tanpa-pengawet.png';" alt="Tanpa Pengawet" style="width: 100%; max-width: 230px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="feature-item">
+                    <img src="kemasan.png.png" onerror="this.onerror=null; this.src='kemasan.png';" alt="Kemasan Cantik" style="width: 100%; max-width: 230px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="feature-item">
+                    <img src="cepat.png.png" onerror="this.onerror=null; this.src='cepat.png';" alt="Pengiriman Cepat" style="width: 100%; max-width: 230px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="feature-item">
+                    <img src="premium.png.png" onerror="this.onerror=null; this.src='premium.png';" alt="Rasa Premium" style="width: 100%; max-width: 230px; height: auto !important; object-fit: contain !important; display: block; background: transparent !important;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TOMBOL WHATSAPP MELAYANG (FLOATING) -->
+    <a href="https://wa.me/6281331258944?text=Halo%20Bu%20Yetty,%20saya%20tertarik%20ingin%20tanya-tanya%20produk%20brownies%20dan%20cheesecake-nya" class="floating-wa" target="_blank" title="Chat via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
